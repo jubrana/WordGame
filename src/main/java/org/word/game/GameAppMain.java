@@ -72,7 +72,6 @@ public class GameAppMain {
 		ArrayList<List<BoardCell>> foundWords = new ArrayList<>();
 		int moves = alphabetBoard.findWords(trieVocabulary, foundWords);
 
-		long end = System.currentTimeMillis() - start;
 
 		System.out.println("------------------------- Words -----------------------------");
 
@@ -82,6 +81,8 @@ public class GameAppMain {
 				.collect(Collectors.toSet());
 
 		wordsFoundStrings.forEach(word -> System.out.println(word));
+
+		long end = System.currentTimeMillis() - start;
 
 		System.out.println("Completed in " + end + " ms. Found " + wordsFoundStrings.size() + " unique words and "
 								+ foundWords.size() + " non-unique words on board. \nMoves: " + moves);

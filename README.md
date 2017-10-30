@@ -31,7 +31,7 @@
 <br /> umi
 <br /> som
 <br /> sol
-<br /> os
+<br /> los
 <br /> mio
 <br /> smo
 <br /> slomi
@@ -42,3 +42,15 @@
 <br /> <br /> 
 Completed in 5 ms. Found 28 unique words and 35 non-unique words on board. 
 <br /> Moves: 415
+
+Notes:
+<br /> In **config.properties** there are 3 properites:<br /> 
+<br /> vocabulary.file.name=croatian-wordlist.txt
+<br /> vocabulary.line.matches.regex=[a-z\u0161\u0111\u010D\u0107\u017E]+
+<br /> minimum.word.length=3
+
+<br /> - With first one (vocabulary.file.name) app can reference your vocabulary file with full path or without any path only with name, that means wordlist file must be located in resources folder.
+
+<br /> - Second one (vocabulary.line.matches.regex) is regex that word needs to conform.
+
+<br /> - Third one is self explanatory, minimum word lenght.
