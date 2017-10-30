@@ -62,7 +62,7 @@ public class GameAppMain {
 			System.out.println("Wrong input format for board dimension");
 			exitApp();
 		}
-		
+
 
 		char[] letters = boardLetters.toCharArray();
 

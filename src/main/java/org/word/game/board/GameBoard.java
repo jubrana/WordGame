@@ -11,14 +11,14 @@ import static org.word.game.Alphabet.LOWERCASE;
 
 public class GameBoard {
 
-	byte[][] board;
+    byte[][] board;
 
     private int rows;
     private int columns;
 
     private int minimumWordLength;
 
-	public GameBoard(int r, int c, char[] letters) {
+    public GameBoard(int r, int c, char[] letters) {
 
         rows = r;
         columns = c;
@@ -28,24 +28,24 @@ public class GameBoard {
                     "Wrong number of letters for board");
         }
 
-		board = new byte[r][c];
-		for (int i = 0; i < r; i++) {
-			for (int j = 0; j < c; j++) {
-				int k = i * c + j;
-				board[i][j] = LOWERCASE.getIndex(letters[k]);
-			}
-		}
-	}
+        board = new byte[r][c];
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                int k = i * c + j;
+                board[i][j] = LOWERCASE.getIndex(letters[k]);
+            }
+        }
+    }
 
 
     public GameBoard(int dimension, char[] letters) {
 
-	    this(dimension, dimension, letters);
+        this(dimension, dimension, letters);
     }
 
 
     public int recurse(Vocabulary vocabulary,
-                          LinkedList<BoardCell> usedCells, ArrayList<List<BoardCell>> words) {
+                       LinkedList<BoardCell> usedCells, ArrayList<List<BoardCell>> words) {
 
         int r = 1;
         byte[] word = getWordAsIndices(usedCells);
@@ -113,7 +113,7 @@ public class GameBoard {
 
 
     public int findWords(Vocabulary vocabulary,
-                               ArrayList<List<BoardCell>> words) {
+                         ArrayList<List<BoardCell>> words) {
         LinkedList<BoardCell> usedCells = new LinkedList<>();
         int moves = 0;
         for (int i = 0; i < rows; i++) {
@@ -128,24 +128,24 @@ public class GameBoard {
     }
 
 
-	public byte[] getWordAsIndices(List<BoardCell> list) {
+    public byte[] getWordAsIndices(List<BoardCell> list) {
 
-		byte[] r = new byte[list.size()];
+        byte[] r = new byte[list.size()];
 
-		for (int i = 0; i < list.size(); i++) {
+        for (int i = 0; i < list.size(); i++) {
 
-			BoardCell cell = list.get(i);
-			r[i] = board[cell.row][cell.col];
-		}
+            BoardCell cell = list.get(i);
+            r[i] = board[cell.row][cell.col];
+        }
 
-		return r;
-	}
+        return r;
+    }
 
 
-	private char getCharAt(int row, int col) {
+    private char getCharAt(int row, int col) {
 
-		return LOWERCASE.alphabet.charAt(board[row][col]);
-	}
+        return LOWERCASE.alphabet.charAt(board[row][col]);
+    }
 
 
     public String getWord(List<BoardCell> usedCells) {
